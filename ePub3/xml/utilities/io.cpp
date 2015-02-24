@@ -42,7 +42,7 @@ int InputBuffer::read_cb(void *context, char *buffer, int len)
     uint8_t* buf = reinterpret_cast<uint8_t*>(buffer);
 
     size_t res = 0;
-    if (p->_encodingCheck == "utf-8" && len >= 3)
+    if (p->_encodingCheck != NULL && (std::strcmp(p->_encodingCheck, "utf-8") == 0) && len >= 3)
     {
         res = p->read(buf, 3);
 

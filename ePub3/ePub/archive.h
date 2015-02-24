@@ -379,7 +379,7 @@ public:
      be read from the archive during this call.
      @result Returns the number of bytes read, or `-1` in case of error.
      */
-	virtual ssize_t read(void *p, size_t len) const { return 0; }
+	virtual ssize_t read(void *p, size_t len) { return 0; }
 
 	virtual size_t total_size() const { return 0; }
 	virtual size_t position() const { return 0; }
