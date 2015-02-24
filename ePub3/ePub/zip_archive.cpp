@@ -258,6 +258,8 @@ unique_ptr<ArchiveReader> ZipArchive::ReaderAtPath(const string & path) const
     if (_zip == nullptr)
         return nullptr;
     
+    zip_set_default_password(_zip, "123test");
+
     struct zip_file* file = zip_fopen(_zip, Sanitized(path).c_str(), 0);
 
     if (file == nullptr)
