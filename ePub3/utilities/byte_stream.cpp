@@ -771,7 +771,7 @@ bool ZipFileByteStream::Open(struct zip *archive, const string &path, int flags)
     
     _file = zip_fopen(archive, Sanitized(path).c_str(), flags);
     _filename = Sanitized(path);
-    printf("file %s\n",Sanitized(path).c_str());
+    //printf("file %s\n",Sanitized(path).c_str());
         
     zip_stat_t st;
     if ((_file != nullptr) && (zip_source_stat(_file->src, &st) >= 0)) {
@@ -806,7 +806,7 @@ ByteStream::size_type ZipFileByteStream::ReadBytes(void *buf, size_type len)
     _bytes_left -= numRead;
 	_eof = (_bytes_left == 0);
     
-    printf("file %s: bytes %zd of %zd\n",_filename.c_str(),Position(),_total_size);
+    //printf("file %s: bytes %zd of %zd\n",_filename.c_str(),Position(),_total_size);
     return numRead;
 }
 ByteStream::size_type ZipFileByteStream::WriteBytes(const void *buf, size_type len)
@@ -841,7 +841,7 @@ ByteStream::size_type ZipFileByteStream::Seek(size_type by, std::ios::seekdir di
 
         supported = 1;
     }
-    printf("file %s: seek to %zd (at %zd)\n",_filename.c_str(),by,Position());
+    //printf("file %s: seek to %zd (at %zd)\n",_filename.c_str(),by,Position());
 
     zip_source_seek(_file->src, long(by), whence);
     //zip_int64_t pos = zip_source_tell(_file->src);
