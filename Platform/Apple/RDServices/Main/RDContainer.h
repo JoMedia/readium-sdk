@@ -46,5 +46,6 @@
 @property (nonatomic, readonly) NSString *path;
 
 - (instancetype)initWithDelegate:(id <RDContainerDelegate>)delegate path:(NSString *)path;
+- (instancetype)initWithDelegate:(id <RDContainerDelegate>)delegate path:(NSString *)path password:(NSString *)password;
 
 @end

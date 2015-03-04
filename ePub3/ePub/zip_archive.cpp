@@ -192,13 +192,15 @@ string ZipArchive::TempFilePath()
 {
     return GetTempFilePath("zip");
 }
-ZipArchive::ZipArchive(const string & path)
+ZipArchive::ZipArchive(const string & path, const string & password)
 {
     int zerr = 0;
     _zip = zip_open(path.c_str(), ZIP_CREATE, &zerr);
     if ( _zip == nullptr )
         throw std::runtime_error(std::string("zip_open() failed: ") + zError(zerr));
     _path = path;
+    if (password.length() > 0)
+        zip_set_default_password(_zip, password.c_str());
 }
 ZipArchive::~ZipArchive()
 {
