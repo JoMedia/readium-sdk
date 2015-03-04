@@ -115,7 +115,7 @@ public:
 	///
 	/// Synchronously creates a new container. Available for the use of ContentModule implementations only.
 	static ContainerPtr
-		OpenContainerForContentModule(const string& path, const string& password = "");
+        OpenContainerForContentModule(const string& path, const string& password = "");
     
     virtual         ~Container();
     

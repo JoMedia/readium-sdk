@@ -199,6 +199,7 @@ ZipArchive::ZipArchive(const string & path, const string & password)
     if ( _zip == nullptr )
         throw std::runtime_error(std::string("zip_open() failed: ") + zError(zerr));
     _path = path;
+
     if (password.length() > 0)
         zip_set_default_password(_zip, password.c_str());
 }
@@ -259,7 +260,7 @@ unique_ptr<ArchiveReader> ZipArchive::ReaderAtPath(const string & path) const
 {
     if (_zip == nullptr)
         return nullptr;
-    
+
     struct zip_file* file = zip_fopen(_zip, Sanitized(path).c_str(), 0);
 
     if (file == nullptr)

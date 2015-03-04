@@ -126,7 +126,7 @@ ContainerPtr Container::OpenContainer(const string &path, const string &password
 	{
         result = future.get();
 		if (!bool(result))
-			return OpenContainerForContentModule(path, password);
+            return OpenContainerForContentModule(path, password);
 	}
 
 	if (!bool(result))
