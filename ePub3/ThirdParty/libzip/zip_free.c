@@ -46,7 +46,7 @@
 void
 _zip_free(struct zip *za)
 {
-    /*int i;
+    int i;
 
     if (za == NULL)
 	return;
@@ -75,7 +75,7 @@ _zip_free(struct zip *za)
 
     free(za->file);
     
-    free(za);*/
+    free(za);
 
     return;
 }
