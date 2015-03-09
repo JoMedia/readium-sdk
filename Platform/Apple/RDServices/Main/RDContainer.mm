@@ -58,6 +58,10 @@
 
 
 - (instancetype)initWithDelegate:(id <RDContainerDelegate>)delegate path:(NSString *)path {
+    return [self initWithDelegate:delegate path:path password:nil];
+}
+
+- (instancetype)initWithDelegate:(id <RDContainerDelegate>)delegate path:(NSString *)path password:(NSString *)password {
 	if (path == nil || ![[NSFileManager defaultManager] fileExistsAtPath:path]) {
 		return nil;
 	}
@@ -86,7 +90,7 @@
 		ePub3::PopulateFilterManager();
 
 		m_path = path;
-		m_container = ePub3::Container::OpenContainer(path.UTF8String);
+        m_container = ePub3::Container::OpenContainer(path.UTF8String, password ? password.UTF8String : "");
 
 		if (m_container == nullptr) {
 			return nil;

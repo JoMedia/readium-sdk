@@ -418,7 +418,7 @@ JNIEXPORT jboolean JNICALL Java_org_readium_sdk_android_EPub3_isEpub3Book(JNIEnv
  * Signature: (Ljava/lang/String;)Lorg/readium/sdk/android/Container
  */
 JNIEXPORT jobject JNICALL
-Java_org_readium_sdk_android_EPub3_openBook(JNIEnv* env, jobject thiz, jstring path) {
+Java_org_readium_sdk_android_EPub3_openBook(JNIEnv* env, jobject thiz, jstring path, jstring password) {
 	// Initialize core ePub3 SDK
 	initializeReadiumSDK(env);
 
@@ -427,10 +427,16 @@ Java_org_readium_sdk_android_EPub3_openBook(JNIEnv* env, jobject thiz, jstring p
 	LOGD("EPub3.openBook(): path received is '%s'", nativePath);
 
 	std::string spath = std::string(nativePath);
+
+    char *nativePassword;
+    GET_UTF8_RETVAL(nativePassword, password, NULL);
+    LOGD("EPub3.openBook(): password received is '%s'", nativePassword);
+
+    std::string spassword = std::string(nativePassword);
     
     shared_ptr<ePub3::Container> _container = nullptr;
     try {
-        _container = ePub3::Container::OpenContainer(spath);
+        _container = ePub3::Container::OpenContainer(spath, spassword);
     }
     catch (const std::invalid_argument& ex) {
     	LOGD("OpenContainer() EXCEPTION: %s\n", ex.what());

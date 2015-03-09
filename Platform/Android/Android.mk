@@ -188,8 +188,6 @@ LOCAL_SRC_FILES := \
 		ePub3/ThirdParty/libzip/zip_close.c \
 		ePub3/ThirdParty/libzip/zip_delete.c \
 		ePub3/ThirdParty/libzip/zip_dirent.c \
-		ePub3/ThirdParty/libzip/zip_entry_free.c \
-		ePub3/ThirdParty/libzip/zip_entry_new.c \
 		ePub3/ThirdParty/libzip/zip_err_str.c \
 		ePub3/ThirdParty/libzip/zip_error.c \
 		ePub3/ThirdParty/libzip/zip_error_clear.c \
@@ -206,9 +204,6 @@ LOCAL_SRC_FILES := \
 		ePub3/ThirdParty/libzip/zip_fopen.c \
 		ePub3/ThirdParty/libzip/zip_fopen_index.c \
 		ePub3/ThirdParty/libzip/zip_fread.c \
-		ePub3/ThirdParty/libzip/zip_free.c \
-		ePub3/ThirdParty/libzip/zip_fseek.c \
-		ePub3/ThirdParty/libzip/zip_ftell.c \
 		ePub3/ThirdParty/libzip/zip_get_archive_comment.c \
 		ePub3/ThirdParty/libzip/zip_get_archive_flag.c \
 		ePub3/ThirdParty/libzip/zip_get_file_comment.c \
@@ -238,6 +233,59 @@ LOCAL_SRC_FILES := \
 		ePub3/ThirdParty/libzip/zip_unchange_all.c \
 		ePub3/ThirdParty/libzip/zip_unchange_archive.c \
 		ePub3/ThirdParty/libzip/zip_unchange_data.c \
+		ePub3/ThirdParty/libzip/zip_add_entry.c \
+		ePub3/ThirdParty/libzip/zip_buffer.c \
+		ePub3/ThirdParty/libzip/zip_dir_add.c \
+		ePub3/ThirdParty/libzip/zip_discard.c \
+		ePub3/ThirdParty/libzip/zip_entry.c \
+		ePub3/ThirdParty/libzip/zip_extra_field.c \
+		ePub3/ThirdParty/libzip/zip_extra_field_api.c \
+		ePub3/ThirdParty/libzip/zip_fdopen.c \
+		ePub3/ThirdParty/libzip/zip_file_add.c \
+		ePub3/ThirdParty/libzip/zip_file_get_comment.c \
+		ePub3/ThirdParty/libzip/zip_file_get_external_attributes.c \
+		ePub3/ThirdParty/libzip/zip_file_rename.c \
+		ePub3/ThirdParty/libzip/zip_file_replace.c \
+		ePub3/ThirdParty/libzip/zip_file_set_comment.c \
+		ePub3/ThirdParty/libzip/zip_file_set_external_attributes.c \
+		ePub3/ThirdParty/libzip/zip_file_set_mtime.c \
+		ePub3/ThirdParty/libzip/zip_fopen_encrypted.c \
+		ePub3/ThirdParty/libzip/zip_fopen_index_encrypted.c \
+		ePub3/ThirdParty/libzip/zip_get_compression_implementation.c \
+		ePub3/ThirdParty/libzip/zip_get_encryption_implementation.c \
+		ePub3/ThirdParty/libzip/zip_get_num_entries.c \
+		ePub3/ThirdParty/libzip/zip_io_util.c \
+		ePub3/ThirdParty/libzip/zip_set_default_password.c \
+		ePub3/ThirdParty/libzip/zip_set_file_compression.c \
+		ePub3/ThirdParty/libzip/zip_source_begin_write.c \
+		ePub3/ThirdParty/libzip/zip_source_call.c \
+		ePub3/ThirdParty/libzip/zip_source_close.c \
+		ePub3/ThirdParty/libzip/zip_source_commit_write.c \
+		ePub3/ThirdParty/libzip/zip_source_crc.c \
+		ePub3/ThirdParty/libzip/zip_source_deflate.c \
+		ePub3/ThirdParty/libzip/zip_source_error.c \
+		ePub3/ThirdParty/libzip/zip_source_is_deleted.c \
+		ePub3/ThirdParty/libzip/zip_source_layered.c \
+		ePub3/ThirdParty/libzip/zip_source_open.c \
+		ePub3/ThirdParty/libzip/zip_source_pkware.c \
+		ePub3/ThirdParty/libzip/zip_source_pop.c \
+		ePub3/ThirdParty/libzip/zip_source_read.c \
+		ePub3/ThirdParty/libzip/zip_source_remove.c \
+		ePub3/ThirdParty/libzip/zip_source_rollback_write.c \
+		ePub3/ThirdParty/libzip/zip_source_seek.c \
+		ePub3/ThirdParty/libzip/zip_source_seek_write.c \
+		ePub3/ThirdParty/libzip/zip_source_stat.c \
+		ePub3/ThirdParty/libzip/zip_source_supports.c \
+		ePub3/ThirdParty/libzip/zip_source_tell.c \
+		ePub3/ThirdParty/libzip/zip_source_tell_write.c \
+		ePub3/ThirdParty/libzip/zip_source_window.c \
+		ePub3/ThirdParty/libzip/zip_source_write.c \
+		ePub3/ThirdParty/libzip/zip_source_zip_new.c \
+		ePub3/ThirdParty/libzip/zip_string.c \
+		ePub3/ThirdParty/libzip/zip_utf-8.c \
+		ePub3/ThirdParty/libzip/zip.h \
+		ePub3/ThirdParty/libzip/zipconf.h \
+		ePub3/ThirdParty/libzip/zipint.h \
 		ePub3/xml/utilities/base.cpp \
 		ePub3/xml/utilities/io.cpp \
 		ePub3/xml/validation/schema.cpp \

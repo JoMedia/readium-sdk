@@ -56,9 +56,9 @@ _archive(std::move(o._archive)), _ocf(o._ocf), _packages(std::move(o._packages))
 Container::~Container()
 {
 }
-bool Container::Open(const string& path)
+bool Container::Open(const string& path, const string& password)
 {
-	_archive = Archive::Open(path.stl_str());
+    _archive = Archive::Open(path.stl_str(), password.stl_str());
 	if (_archive == nullptr)
 		throw std::invalid_argument(_Str("Path does not point to a recognised archive file: '", path, "'"));
 	_path = path;
@@ -116,7 +116,7 @@ bool Container::Open(const string& path)
 
 	return true;
 }
-ContainerPtr Container::OpenContainer(const string &path)
+ContainerPtr Container::OpenContainer(const string &path, const string &password)
 {
 	auto future = ContentModuleManager::Instance()->LoadContentAtPath(path, launch::any);
 	ContainerPtr result;
@@ -126,7 +126,7 @@ ContainerPtr Container::OpenContainer(const string &path)
 	{
         result = future.get();
 		if (!bool(result))
-			return OpenContainerForContentModule(path);
+            return OpenContainerForContentModule(path, password);
 	}
 
 	if (!bool(result))
@@ -173,10 +173,10 @@ ContainerPtr Container::OpenSynchronouslyForWinRT(const string& path)
 	return future.get();
 }
 #endif
-ContainerPtr Container::OpenContainerForContentModule(const string& path)
+ContainerPtr Container::OpenContainerForContentModule(const string& path, const string& password)
 {
 	ContainerPtr container = Container::New();
-	if (container->Open(path) == false)
+	if (container->Open(path, password) == false)
 		return nullptr;
 	return container;
 }
