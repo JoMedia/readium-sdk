@@ -133,7 +133,7 @@ public class EPub3 {
 	 * @return A Container object corresponding to the opened
 	 * ePub3 book.
 	 */
-	public static native Container openBook(final String path);
+	public static native Container openBook(final String path, final String password);
 	
 	/**
 	 * Releases a native pointer from the PointerPool.
