@@ -48,4 +48,7 @@
 - (instancetype)initWithDelegate:(id <RDContainerDelegate>)delegate path:(NSString *)path;
 - (instancetype)initWithDelegate:(id <RDContainerDelegate>)delegate path:(NSString *)path password:(NSString *)password;
 
+- (BOOL)fileExistsAtPath:(NSString *)path;
+- (NSData *)dataForFileAtPath:(NSString *)path;
+
 @end
