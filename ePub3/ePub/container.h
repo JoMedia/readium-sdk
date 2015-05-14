@@ -167,7 +167,6 @@ public:
      */
     virtual unique_ptr<ByteStream>  ReadStreamAtPath(const string& path)        const;
     
-    virtual unique_ptr<void>        ExtractFileAtPath_flush(const string& path)       const;
     virtual std::vector<char>       ExtractFileAtPath(const string& path)      const;
     ///
     /// The underlying archive.
