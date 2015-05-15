@@ -471,6 +471,50 @@ Java_org_readium_sdk_android_EPub3_openBook(JNIEnv* env, jobject thiz, jstring p
 	return jContainer;
 }
 
+JNIEXPORT jstring JNICALL
+Java_org_readium_sdk_android_EPub3_readFileAtPath(JNIEnv* env, jobject thiz, jstring bookPath, jstring password, jstring filePath) {
+    initializeReadiumSDK(env);
+
+    char *nativeBookPath;
+    GET_UTF8_RETVAL(nativeBookPath, bookPath, NULL);
+
+    std::string spath = std::string(nativeBookPath);
+
+    LOGD("EPub3.readFileAtPath(): book path received is '%s'", nativeBookPath);
+
+    char *nativePassword;
+    GET_UTF8_RETVAL(nativePassword, password, NULL);
+    LOGD("EPub3.readFileAtPath(): password received is '%s'", nativePassword);
+
+    std::string spassword = std::string(nativePassword);
+
+    char *nativeFilePath;
+    GET_UTF8_RETVAL(nativeFilePath, filePath, NULL);
+
+    std::string sFilepath = std::string(nativeFilePath);
+
+    LOGD("EPub3.readFileAtPath(): book path received is '%s'", nativeFilePath);
+
+    shared_ptr<ePub3::Container> _container = nullptr;
+    try {
+        _container = ePub3::Container::OpenContainer(spath, spassword);
+    }
+    catch (const std::invalid_argument& ex) {
+        LOGD("OpenContainer() EXCEPTION: %s\n", ex.what());
+    }
+
+    jstring result;
+
+    LOGD("OpenContainer() FileExistsAtPath: %s\n", _container->FileExistsAtPath(nativeFilePath) ?"true":"false");
+
+    if (_container->FileExistsAtPath(nativeFilePath)) {
+        std::vector<char> data = _container->ExtractFileAtPath(nativeFilePath);
+        result = env->NewStringUTF(data.data());
+    }
+
+    return result;
+}
+
 /*
  * Class:     org_readium_sdk_android_EPub3
  * Method:    releaseNativePointer
