@@ -471,7 +471,7 @@ Java_org_readium_sdk_android_EPub3_openBook(JNIEnv* env, jobject thiz, jstring p
 	return jContainer;
 }
 
-JNIEXPORT jstring JNICALL
+JNIEXPORT jbyteArray JNICALL
 Java_org_readium_sdk_android_EPub3_readFileAtPath(JNIEnv* env, jobject thiz, jstring bookPath, jstring password, jstring filePath) {
     initializeReadiumSDK(env);
 
@@ -503,13 +503,14 @@ Java_org_readium_sdk_android_EPub3_readFileAtPath(JNIEnv* env, jobject thiz, jst
         LOGD("OpenContainer() EXCEPTION: %s\n", ex.what());
     }
 
-    jstring result;
+    jbyteArray result;
 
     LOGD("OpenContainer() FileExistsAtPath: %s\n", _container->FileExistsAtPath(nativeFilePath) ?"true":"false");
 
     if (_container->FileExistsAtPath(nativeFilePath)) {
         std::vector<char> data = _container->ExtractFileAtPath(nativeFilePath);
-        result = env->NewStringUTF(data.data());
+        result = env->NewByteArray(data.size());
+        env->SetByteArrayRegion(result, 0, data.size(), (const jbyte*)data.data());
     }
 
     return result;

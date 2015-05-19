@@ -141,7 +141,7 @@ public class EPub3 {
      * @param filePath Path to the file inside the ePub book
      * @return A String containing the contents of the file
      */
-    public static native String readFileAtPath(final String bookFilePath, final String password, final String filePath);
+    public static native byte[] readFileAtPath(final String bookFilePath, final String password, final String filePath);
 	
 	/**
 	 * Releases a native pointer from the PointerPool.
