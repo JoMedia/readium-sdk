@@ -2798,6 +2798,90 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		17A6D1901BB4356300B5EE56 /* Calabash */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BUILDING_EPUB3=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Calabash;
+		};
+		17A6D1911BB4356300B5EE56 /* Calabash */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "../../ePub3-iOS/ePub3-iOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"USING_ICU=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(SRCROOT)/include",
+				);
+				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Calabash;
+		};
+		17A6D1921BB4356300B5EE56 /* Calabash */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ePub3_iOS.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "../../ePub3-iOS/ePub3-iOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"USING_ICU=0",
+				);
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(SRCROOT)/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Calabash;
+		};
+		17A6D1931BB4356300B5EE56 /* Calabash */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(SRCROOT)/include",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Calabash;
+		};
 		AB61CE521694845700299BB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2970,6 +3054,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB61CE521694845700299BB1 /* Debug */,
+				17A6D1931BB4356300B5EE56 /* Calabash */,
 				AB61CE531694845700299BB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2979,6 +3064,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ABA4BAEC16ADF5A600161B77 /* Debug */,
+				17A6D1921BB4356300B5EE56 /* Calabash */,
 				ABA4BAED16ADF5A600161B77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2988,6 +3074,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ABA72C2F1655382E003125FF /* Debug */,
+				17A6D1901BB4356300B5EE56 /* Calabash */,
 				ABA72C301655382E003125FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2997,6 +3084,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ABA72C321655382E003125FF /* Debug */,
+				17A6D1911BB4356300B5EE56 /* Calabash */,
 				ABA72C331655382E003125FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
