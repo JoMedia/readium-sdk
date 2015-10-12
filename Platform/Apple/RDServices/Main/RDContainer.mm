@@ -108,5 +108,13 @@
 	return self;
 }
 
+- (BOOL)fileExistsAtPath:(NSString *)path {
+    return m_container->FileExistsAtPath(path.UTF8String);
+}
+
+- (NSData *)dataForFileAtPath:(NSString *)path {
+    std::vector<char> data = m_container->ExtractFileAtPath(path.UTF8String);
+    return [NSData dataWithBytes:data.data() length:data.size()];
+}
 
 @end

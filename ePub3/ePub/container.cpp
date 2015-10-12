@@ -221,6 +221,23 @@ string Container::Version() const
     return std::move(strings[0]);
 }
 
+std::vector<char> Container::ExtractFileAtPath(const string& path) const
+{
+    unique_ptr<ArchiveReader> pZipReader = _archive->ReaderAtPath(path);
+    if ( !pZipReader ) {
+        return std::vector<char>(0);
+    }
+    
+    size_t total_size = pZipReader->total_size();
+    std::vector<char> buffer(total_size);
+    size_t total_read = pZipReader->read(buffer.data(), total_size);
+    if (total_read != total_size) {
+        return std::vector<char>(0);
+    }
+
+    return buffer;
+}
+
 void Container::ParseVendorMetadata()
 {
     unique_ptr<ArchiveReader> pZipReader = _archive->ReaderAtPath(gAppleiBooksDisplayOptionsFilePath);
